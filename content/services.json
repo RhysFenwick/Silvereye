@@ -1,0 +1,31 @@
+{
+  "items": [
+    {
+      "title": "Individual Therapy",
+      "description": "Placeholder: Describe individual therapy services, approach, and conditions treated.",
+      "tags": ["Therapy", "Mental Health"],
+      "cta": {
+        "text": "Learn More",
+        "link": "#"
+      }
+    },
+    {
+      "title": "Couples Counseling",
+      "description": "Placeholder: Information about couples and relationship counseling services.",
+      "tags": ["Couples", "Relationships"],
+      "cta": {
+        "text": "Learn More",
+        "link": "#"
+      }
+    },
+    {
+      "title": "Consultation",
+      "description": "Placeholder: Details about consultation services and how to get started.",
+      "tags": ["Consultation", "Assessment"],
+      "cta": {
+        "text": "Learn More",
+        "link": "#"
+      }
+    }
+  ]
+}

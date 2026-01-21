@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Silvereye Psychology - Professional psychological services">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <title>Silvereye Psychology</title>
+    
+    <!-- Stylesheets - Mobile-first approach -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Silvereye Psychology</h1>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" data-section="home">Home</a></li>
+                <li><a href="#about" data-section="about">About</a></li>
+                <li><a href="#services" data-section="services">Services</a></li>
+                <li><a href="#blog" data-section="blog">Blog</a></li>
+                <li><a href="#booking" data-section="booking">Booking</a></li>
+                <li><a href="#contact" data-section="contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Section -->
+        <section class="section hero" id="home">
+            <div class="container">
+                <h2>Welcome to Silvereye Psychology</h2>
+                <p class="hero-subtitle" id="hero-subtitle"><!-- Loaded from content --></p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <div id="about-content" class="content-placeholder">
+                    <!-- Loaded from content/about.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services" id="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid" id="services-grid">
+                    <!-- Loaded from content/services.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="section blog" id="blog">
+            <div class="container">
+                <h2>Blog & Resources</h2>
+                <div class="blog-grid" id="blog-grid">
+                    <!-- Loaded from content/blog.json -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="section booking" id="booking">
+            <div class="container">
+                <h2>Book an Appointment</h2>
+                <div id="booking-content" class="content-placeholder">
+                    <!-- Loaded from content/booking.json -->
+                </div>
+                
+                <!-- Calendly Embed Placeholder -->
+                <div id="calendly-embed" class="calendly-embed-container" style="margin-top: var(--spacing-2xl);">
+                     <!-- Calendly inline widget begin -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/ashpsychtutor/1-hour-tutoring-session" style="min-width:320px;height:700px;"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- Calendly inline widget end -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div id="contact-content" class="content-placeholder">
+                    <!-- Loaded from content/contact.json -->
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Silvereye Psychology. All rights reserved.</p>
+            <p>Contact: <a href="mailto:contact@silvereyepsychology.com">contact@silvereyepsychology.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/contentLoader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

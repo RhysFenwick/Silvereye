@@ -1,0 +1,183 @@
+/**
+ * Content Loader Module
+ * ============================================================================
+ * Handles loading and rendering content from JSON files.
+ * Provides a clean separation between content and code.
+ * 
+ * Usage:
+ * ContentLoader.load('services').then(data => {
+ *     ContentLoader.renderCards(data, '#services-grid');
+ * });
+ */
+
+const ContentLoader = (() => {
+    /**
+     * Load content from a JSON file
+     * @param {string} contentType - The content type/filename (without .json)
+     * @returns {Promise<Object>} The parsed content data
+     */
+    const load = async (contentType) => {
+        try {
+            const response = await fetch(`content/${contentType}.json`);
+            
+            if (!response.ok) {
+                console.error(`Failed to load content: ${contentType}`);
+                return null;
+            }
+            
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error(`Error loading content file: ${contentType}`, error);
+            return null;
+        }
+    };
+
+    /**
+     * Render card-based content
+     * @param {Array} items - Array of items to render
+     * @param {string} selector - CSS selector for container
+     * @param {string} cardType - Type of card to render ('service', 'blog', etc)
+     */
+    const renderCards = (items, selector, cardType = 'card') => {
+        const container = document.querySelector(selector);
+        if (!container || !items) return;
+
+        container.innerHTML = '';
+        
+        items.forEach(item => {
+            const card = createCard(item, cardType);
+            container.appendChild(card);
+        });
+    };
+
+    /**
+     * Create a card element from item data
+     * @param {Object} item - Item data
+     * @param {string} cardType - Type of card
+     * @returns {HTMLElement} The created card element
+     */
+    const createCard = (item, cardType) => {
+        const card = document.createElement('div');
+        card.className = `card ${cardType}-card`;
+
+        let cardHTML = `<h3>${item.title || ''}</h3>`;
+
+        if (item.description) {
+            cardHTML += `<p>${item.description}</p>`;
+        }
+
+        if (cardType === 'blog' && item.date) {
+            cardHTML = `<div class="blog-card-meta">
+                            <span class="blog-card-date">${formatDate(item.date)}</span>
+                        </div>` + cardHTML;
+        }
+
+        if (item.tags) {
+            cardHTML += `<div class="card-tags">`;
+            item.tags.forEach(tag => {
+                cardHTML += `<span class="badge badge-primary">${tag}</span> `;
+            });
+            cardHTML += `</div>`;
+        }
+
+        if (item.cta && item.cta.text) {
+            cardHTML += `<a href="${item.cta.link || '#'}" class="btn btn-primary">${item.cta.text}</a>`;
+        }
+
+        card.innerHTML = cardHTML;
+        return card;
+    };
+
+    /**
+     * Render text content
+     * @param {Object} content - Content object with title and body
+     * @param {string} selector - CSS selector for container
+     */
+    const renderText = (content, selector) => {
+        const container = document.querySelector(selector);
+        if (!container || !content) return;
+
+        let html = '';
+        
+        if (content.title) {
+            html += `<h3>${content.title}</h3>`;
+        }
+
+        if (content.body) {
+            html += `<p>${content.body}</p>`;
+        }
+
+        container.innerHTML = html;
+    };
+
+    /**
+     * Format date string to readable format
+     * @param {string} dateString - ISO date string
+     * @returns {string} Formatted date
+     */
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
+
+    /**
+     * Initialize all content loading
+     * Call this after DOM is loaded
+     */
+    const init = async () => {
+        try {
+            // Load hero subtitle
+            const heroData = await load('hero');
+            if (heroData && heroData.subtitle) {
+                const subtitleEl = document.querySelector('#hero-subtitle');
+                if (subtitleEl) subtitleEl.textContent = heroData.subtitle;
+            }
+
+            // Load about section
+            const aboutData = await load('about');
+            if (aboutData) {
+                renderText(aboutData, '#about-content');
+            }
+
+            // Load services
+            const servicesData = await load('services');
+            if (servicesData && servicesData.items) {
+                renderCards(servicesData.items, '#services-grid', 'service');
+            }
+
+            // Load blog posts
+            const blogData = await load('blog');
+            if (blogData && blogData.items) {
+                renderCards(blogData.items, '#blog-grid', 'blog');
+            }
+
+            // Load booking section
+            const bookingData = await load('booking');
+            if (bookingData) {
+                renderText(bookingData, '#booking-content');
+            }
+
+            // Load contact info
+            const contactData = await load('contact');
+            if (contactData) {
+                renderText(contactData, '#contact-content');
+            }
+        } catch (error) {
+            console.error('Error initializing content loader:', error);
+        }
+    };
+
+    // Public API
+    return {
+        load,
+        renderCards,
+        renderText,
+        init
+    };
+})();
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    ContentLoader.init();
+});

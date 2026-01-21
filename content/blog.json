@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "title": "First Blog Post Title",
+      "description": "Placeholder: Brief description of the blog post content.",
+      "date": "2026-01-15",
+      "tags": ["Psychology", "Wellness"],
+      "cta": {
+        "text": "Read More",
+        "link": "#"
+      }
+    },
+    {
+      "title": "Second Blog Post Title",
+      "description": "Placeholder: Another article or insight related to psychological practice.",
+      "date": "2026-01-10",
+      "tags": ["Mental Health", "Resources"],
+      "cta": {
+        "text": "Read More",
+        "link": "#"
+      }
+    },
+    {
+      "title": "Third Blog Post Title",
+      "description": "Placeholder: Additional content for your blog section.",
+      "date": "2026-01-05",
+      "tags": ["Tips", "Advice"],
+      "cta": {
+        "text": "Read More",
+        "link": "#"
+      }
+    }
+  ]
+}
