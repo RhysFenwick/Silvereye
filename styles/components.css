@@ -111,7 +111,7 @@
 
 /* Grid Layouts */
 .services-grid,
-.blog-grid {
+.resources-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
@@ -120,7 +120,7 @@
 
 @media (min-width: 768px) {
     .services-grid,
-    .blog-grid {
+    .resources-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-xl);
     }
@@ -128,7 +128,7 @@
 
 @media (min-width: 1024px) {
     .services-grid,
-    .blog-grid {
+    .resources-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -169,20 +169,13 @@
     padding-left: var(--spacing-lg);
 }
 
-/* Blog Card */
-.blog-card {
-    display: flex;
-    flex-direction: column;
+/* Resource Card */
+.resource-card {
+    border-top: 4px solid var(--color-accent);
 }
 
-.blog-card-meta {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-sm);
-}
-
-.blog-card-date {
-    font-weight: var(--font-weight-semibold);
+.resource-card .badge {
+    margin-bottom: var(--spacing-md);
 }
 
 /* Badges */

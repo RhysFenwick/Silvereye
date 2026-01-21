@@ -112,13 +112,49 @@ const ContentLoader = (() => {
     };
 
     /**
-     * Format date string to readable format
-     * @param {string} dateString - ISO date string
-     * @returns {string} Formatted date
+     * Render downloadable resources
+     * @param {Array} items - Array of resource items
+     * @param {string} selector - CSS selector for container
      */
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString('en-US', options);
+    const renderResources = (items, selector) => {
+        const container = document.querySelector(selector);
+        if (!container || !items) return;
+
+        container.innerHTML = '';
+        
+        items.forEach(item => {
+            const resource = createResourceCard(item);
+            container.appendChild(resource);
+        });
+    };
+
+    /**
+     * Create a resource card element
+     * @param {Object} item - Resource item data
+     * @returns {HTMLElement} The created resource card
+     */
+    const createResourceCard = (item) => {
+        const card = document.createElement('div');
+        card.className = 'card resource-card';
+
+        let cardHTML = `<h3>${item.title || ''}</h3>`;
+
+        if (item.description) {
+            cardHTML += `<p>${item.description}</p>`;
+        }
+
+        if (item.type) {
+            cardHTML += `<span class="badge badge-primary">${item.type}</span>`;
+        }
+
+        if (item.download) {
+            cardHTML += `<a href="${item.download.url}" class="btn btn-primary" download="${item.download.filename || ''}" target="_blank">
+                            📥 Download ${item.download.filename || 'File'}
+                        </a>`;
+        }
+
+        card.innerHTML = cardHTML;
+        return card;
     };
 
     /**
@@ -146,10 +182,15 @@ const ContentLoader = (() => {
                 renderCards(servicesData.items, '#services-grid', 'service');
             }
 
-            // Load blog posts
-            const blogData = await load('blog');
-            if (blogData && blogData.items) {
-                renderCards(blogData.items, '#blog-grid', 'blog');
+            // Load resources
+            const resourcesData = await load('resources');
+            if (resourcesData) {
+                if (resourcesData.intro) {
+                    renderText(resourcesData.intro, '#resources-intro');
+                }
+                if (resourcesData.items) {
+                    renderResources(resourcesData.items, '#resources-grid');
+                }
             }
 
             // Load booking section
@@ -173,6 +214,7 @@ const ContentLoader = (() => {
         load,
         renderCards,
         renderText,
+        renderResources,
         init
     };
 })();

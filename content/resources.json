@@ -1,0 +1,35 @@
+{
+  "intro": {
+    "title": "Downloadable Resources",
+    "body": "Placeholder: Add introductory text about your resources, guides, and documents. These materials are designed to support your mental health journey."
+  },
+  "items": [
+    {
+      "title": "Mental Health Guide",
+      "description": "Placeholder: A comprehensive guide covering mental health fundamentals and self-care strategies.",
+      "type": "PDF",
+      "download": {
+        "url": "/assets/mental-health-guide.pdf",
+        "filename": "mental-health-guide.pdf"
+      }
+    },
+    {
+      "title": "Anxiety Management Workbook",
+      "description": "Placeholder: Interactive workbook with exercises and techniques for managing anxiety.",
+      "type": "PDF",
+      "download": {
+        "url": "/assets/anxiety-workbook.pdf",
+        "filename": "anxiety-workbook.pdf"
+      }
+    },
+    {
+      "title": "Self-Care Checklist",
+      "description": "Placeholder: A practical daily checklist to support your mental wellness routine.",
+      "type": "PDF",
+      "download": {
+        "url": "/assets/self-care-checklist.pdf",
+        "filename": "self-care-checklist.pdf"
+      }
+    }
+  ]
+}
