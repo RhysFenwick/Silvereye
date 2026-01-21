@@ -1,6 +1,15 @@
 {
   "items": [
     {
+      "title": "Supervision",
+      "description": "Peer supervision with a qualified psychologist.",
+      "tags": ["Supervision"],
+      "cta": {
+        "text": "Book Now",
+        "link": "#booking"
+      }
+    },
+    {
       "title": "Individual Therapy",
       "description": "Placeholder: Describe individual therapy services, approach, and conditions treated.",
       "tags": ["Therapy", "Mental Health"],
@@ -13,15 +22,6 @@
       "title": "Couples Counseling",
       "description": "Placeholder: Information about couples and relationship counseling services.",
       "tags": ["Couples", "Relationships"],
-      "cta": {
-        "text": "Learn More",
-        "link": "#"
-      }
-    },
-    {
-      "title": "Consultation",
-      "description": "Placeholder: Details about consultation services and how to get started.",
-      "tags": ["Consultation", "Assessment"],
       "cta": {
         "text": "Learn More",
         "link": "#"

@@ -170,6 +170,7 @@
     color: var(--color-text-secondary);
     min-height: 8rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
