@@ -1,4 +1,4 @@
-# Silvereye Psychology Website
+# Fable Psychology Website
 
 A modern, mobile-first website for a psychology practice built with semantic HTML, modular CSS, and vanilla JavaScript.
 
@@ -14,7 +14,7 @@ A modern, mobile-first website for a psychology practice built with semantic HTM
 ## 📁 Project Structure
 
 ```
-silvereye-psychology/
+fable-psychology/
 ├── index.html              # Main HTML entry point
 ├── styles/
 │   ├── variables.css       # Design tokens and CSS custom properties
@@ -164,7 +164,7 @@ Add your preferred license here.
 
 ## 📧 Support
 
-For questions or issues, contact: [contact@silvereyepsychology.com](mailto:contact@silvereyepsychology.com)
+For questions or issues, contact: [contact@fablepsychology.com](mailto:contact@fableeyepsychology.com)
 
 ---
 
