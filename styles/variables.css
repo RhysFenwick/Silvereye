@@ -4,15 +4,27 @@
 
 :root {
     /* Color Palette - Professional Psychology Practice */
-    --color-primary: #2c3e50;        /* Deep blue-grey */
-    --color-secondary: #3498db;      /* Light blue */
-    --color-accent: #16a085;         /* Teal/green */
+    /* Overall palette (Brown -> Biege -> Green):
+    533115
+    79512C
+    8D6841
+    A28B69
+    B5AD93
+    C3C5AD
+    A6AB8A
+    676D4E
+    434835
+    353D2B
+    */
+    --color-primary: #353D2B;        /* Deep green */
+    --color-secondary: #434835;      /* Medium green */
+    --color-accent: #676d4e;         /* Light green */
     --color-success: #27ae60;         /* Green */
     --color-warning: #f39c12;         /* Orange */
     --color-danger: #e74c3c;          /* Red */
     
-    --color-bg-light: #f8f9fa;       /* Off-white background */
-    --color-bg-dark: #ffffff;        /* White content background */
+    --color-bg-light: #C3C5AD;       /* Off-white background */
+    --color-bg-dark: #B5AD93;        /* White content background */
     --color-text-primary: #2c3e50;   /* Dark text */
     --color-text-secondary: #7f8c8d; /* Grey text */
     --color-border: #ecf0f1;         /* Light border */
@@ -81,17 +93,6 @@
     --z-sticky: 200;
     --z-fixed: 300;
     --z-modal: 1000;
-}
-
-/* Dark mode support (future enhancement) */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg-light: #1a1a1a;
-        --color-bg-dark: #242424;
-        --color-text-primary: #f8f9fa;
-        --color-text-secondary: #b0b0b0;
-        --color-border: #404040;
-    }
 }
 
 /* High contrast mode support */
