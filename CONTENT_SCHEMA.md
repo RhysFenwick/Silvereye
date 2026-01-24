@@ -9,6 +9,7 @@
 * ========================
 * Structure:
 * {
+* "render": true,
 * "subtitle": "string - Main hero subtitle text"
 * }
 *
@@ -17,6 +18,7 @@
 * ========================================
 * Structure:
 * {
+* "render": true,
 * "title": "string - Section title",
 * "body": "string - Main text content (supports basic text)"
 * }
@@ -26,6 +28,7 @@
 * ==============================================
 * Structure:
 * {
+* "render": true,
 * "items": [
 *     {
 *       "title": "string - Card title",
@@ -44,6 +47,7 @@
 * EXAMPLE: services.json
 * ======================
 * {
+* "render": true,
 * "items": [
 *     {
 *       "title": "Individual Therapy",
@@ -61,6 +65,7 @@
 * EXAMPLE: blog.json
 * ==================
 * {
+* "render": true,
 * "items": [
 *     {
 *       "title": "Understanding Anxiety",
@@ -78,6 +83,9 @@
 *
 * FIELD REFERENCE
 * ===============
+*
+* render (boolean, required for all sections)
+* * Used to add/remove sections as needed
 *
 * title (string, required for cards)
 * * The heading for the section or card
