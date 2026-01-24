@@ -162,6 +162,34 @@ const ContentLoader = (() => {
      * Call this after DOM is loaded
      */
     const init = async () => {
+        /**
+         * If a section has render set to false, skip rendering and remove from DOM
+         * @param {Object} content - The content object
+         * @param {string} selector - CSS selector for the container
+         */
+        const handleConditionalRendering = (content, selector) => {
+            const container = document.querySelector(selector);
+            if (!container) return;
+            if (content && content.render === false) {
+                container.remove();
+            }
+        };
+
+        const sectionsToCheck = [
+            { type: 'about', selector: '#about' },
+            { type: 'blog', selector: '#blog-section' },
+            { type: 'booking', selector: '#booking' },
+            { type: 'contact', selector: '#contact' },
+            { type: 'hero', selector: '#home' },
+            { type: 'services', selector: '#services' },
+            { type: 'resources', selector: '#resources' }
+        ];
+
+        sectionsToCheck.forEach(async ({ type, selector }) => {
+            const content = await load(type);
+            handleConditionalRendering(content, selector);
+        });
+
         try {
             // Load hero subtitle
             const heroData = await load('hero');
