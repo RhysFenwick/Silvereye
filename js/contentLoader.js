@@ -169,10 +169,16 @@ const ContentLoader = (() => {
          */
         const handleConditionalRendering = (content, selector) => {
             const container = document.querySelector(selector);
-            if (!container) return;
+            if (!container) return; /* If it's not there anyway, don't need to bother deleting it! */
             /* Has "content &&" to avoid glitching if it's null or undefined */
             if (content && content.render === false) {
-                container.remove();
+                container.remove(); /* Remove the relevant section from the DOM... */
+                /* ...and also remove any navigation links pointing to it... */
+                const navLink = document.querySelector(`a[data-section="${container.id}"]`);
+                if (navLink) navLink.remove();
+                /* ...and any empty space it would have taken up in the nav bar */
+                const navSpacer = document.querySelector(`.nav-spacer[data-section="${container.id}"]`);
+                if (navSpacer) navSpacer.remove();
             }
         };
 
