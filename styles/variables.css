@@ -4,29 +4,24 @@
 
 :root {
     /* Color Palette - Professional Psychology Practice */
-    /* Overall palette (Brown -> Biege -> Green):
-    533115
-    79512C
-    8D6841
-    A28B69
-    B5AD93
-    C3C5AD
-    A6AB8A
-    676D4E
-    434835
-    353D2B
+    /* Overall palette:
+        #0A3323 - Dark green (primary)
+        #839958 - Moss green
+        #F7F4D5 - Biege
+        #D3968C - Rosy brown
+        #105666 - Midnight green
     */
-    --color-primary: #353D2B;        /* Deep green */
-    --color-secondary: #434835;      /* Medium green */
-    --color-accent: #676d4e;         /* Light green */
+    --color-primary: #0A3323;        /* Dark green */
+    --color-secondary: #D3968C;
+    --color-accent: #839958;         /* Light green */
     --color-success: #27ae60;         /* Green */
     --color-warning: #f39c12;         /* Orange */
     --color-danger: #e74c3c;          /* Red */
     
-    --color-bg-light: #C3C5AD;       /* Off-white background */
-    --color-bg-dark: #B5AD93;        /* White content background */
-    --color-text-primary: #2c3e50;   /* Dark text */
-    --color-text-secondary: #7f8c8d; /* Grey text */
+    --color-bg-light: #F7F4D5;       /* Off-white background */
+    --color-bg-dark: #839958;        /* White content background */
+    --color-text-primary: #0A3323;   /* Dark text */
+    --color-text-secondary: #105666; /* Grey text */
     --color-border: #ecf0f1;         /* Light border */
     
     /* Typography */

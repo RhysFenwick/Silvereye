@@ -170,6 +170,7 @@ const ContentLoader = (() => {
         const handleConditionalRendering = (content, selector) => {
             const container = document.querySelector(selector);
             if (!container) return;
+            /* Has "content &&" to avoid glitching if it's null or undefined */
             if (content && content.render === false) {
                 container.remove();
             }
