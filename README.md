@@ -160,11 +160,13 @@ Edit the `<nav>` element in `index.html`. Navigation JS will automatically handl
 
 ## 📄 License
 
-Add your preferred license here.
+Undecided yet.
 
-## 📧 Support
+## 📧 TODO
 
-For questions or issues, contact: [contact@fablepsychology.com](mailto:contact@fableeyepsychology.com)
+- Change the rendering order so things are non-rendered by default rather than rendered then subtracted
+- Add animations
+- Add images
 
 ---
 

@@ -107,3 +107,11 @@
         --transition-slow: 0ms;
     }
 }
+
+/* Animation variables */
+:root {
+    --animation-duration-fast: 250ms;
+    --animation-duration-base: 500ms;
+    --animation-duration-slow: 2000ms;
+    --animation-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
