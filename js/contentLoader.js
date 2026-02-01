@@ -175,10 +175,7 @@ const ContentLoader = (() => {
                 container.remove(); /* Remove the relevant section from the DOM... */
                 /* ...and also remove any navigation links pointing to it... */
                 const navLink = document.querySelector(`a[data-section="${container.id}"]`);
-                if (navLink) navLink.remove();
-                /* ...and any empty space it would have taken up in the nav bar */
-                const navSpacer = document.querySelector(`.nav-spacer[data-section="${container.id}"]`);
-                if (navSpacer) navSpacer.remove();
+                if (navLink) navLink.parentElement.remove();
             }
         };
 
