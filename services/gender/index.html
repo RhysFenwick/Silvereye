@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fable Psychology - Professional psychological services">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <title>Fable Psychology</title>
+    
+    <!-- Stylesheets - Mobile-first approach -->
+    <link rel="stylesheet" href="../../styles/variables.css">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/components.css">
+    
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Fable Psychology</h1>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../../index.html#home" data-section="home">Home</a></li>
+                <li><a href="../../index.html#about" data-section="about">About</a></li>
+                <li><a href="../../index.html#services" data-section="services">Services</a></li>
+                <li><a href="../../index.html#resources" data-section="resources">Resources</a></li>
+                <li><a href="../../index.html#booking" data-section="booking">Booking</a></li>
+                <li><a href="../../index.html#contact" data-section="contact">Contact</a></li>
+                <li><a href="/services/gender/index.html" data-section="gender">Gender-Affirming Care</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Section -->
+        <section class="section hero" id="home">
+            <div class="container animate__animated animate__fadeInDown animate__slow">
+                <h2>Gender-Affirming Care</h2>
+            </div>
+        </section>
+
+        <section class="section gender" id="gender">
+            <div class="container">
+                <div id="gender-content" class="content-placeholder">
+                    <!-- Loaded from content/gender.json -->
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Fable Psychology. All rights reserved.</p>
+            <p>Contact: <a href="mailto:ashley@fable-psychology.com">ashley@fable-psychology.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/contentLoader.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

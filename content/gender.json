@@ -1,5 +1,5 @@
 {
   "render": true,
-  "title": "Gender-Affirming Care",
-  "body-link": "assets/text/gender.html"
+  "path": "/services/gender/index.html",
+  "body-link": "../../assets/text/gender.html"
 }

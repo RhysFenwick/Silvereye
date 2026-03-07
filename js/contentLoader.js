@@ -18,7 +18,7 @@ const ContentLoader = (() => {
      */
     const load = async (contentType) => {
         try {
-            const response = await fetch(`content/${contentType}.json`);
+            const response = await fetch(`../../content/${contentType}.json`);
             
             if (!response.ok) {
                 console.error(`Failed to load content: ${contentType}`);
