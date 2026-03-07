@@ -179,14 +179,15 @@
 
 /* Items in columns */
 .column-item {
-    width: 50%;
+    flex-grow: 1;
+    margin: var(--spacing-md);
 }
 
 /* Two-Column Layout for Content Placeholder + Image */
+/* This should make the two items appear side-by-side*/
 .content-two-column {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2xl);
 }
 
 @media (min-width: 768px) {
