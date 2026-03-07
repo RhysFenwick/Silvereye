@@ -91,24 +91,45 @@ const ContentLoader = (() => {
 
     /**
      * Render text content
-     * @param {Object} content - Content object with title and body
+     * @param {Object} content - Content object with title and body or body-link
      * @param {string} selector - CSS selector for container
      */
-    const renderText = (content, selector) => {
+
+    const renderText = async (content, selector) => {
         const container = document.querySelector(selector);
         if (!container || !content) return;
-
         let html = '';
         
         if (content.title) {
-            html += `<h3>${content.title}</h3>`;
+            html += `<h2>${content.title}</h2>`;
         }
-
         if (content.body) {
             html += `<p>${content.body}</p>`;
         }
-
         container.innerHTML = html;
+
+        if (content['body-link']) {
+            try {
+                const response = await fetch(content['body-link']);
+                if (response.ok) {
+                    const linkedContent = await response.text();
+                    container.innerHTML += linkedContent;
+                } else {
+                    console.error(`Failed to load linked content: ${content['body-link']}`);
+                }   
+            } catch (error) {
+                console.error(`Error loading linked content: ${content['body-link']}`, error);
+            }
+        }
+    };
+
+
+    // Utility for rendering text sections (about, booking, contact, etc.)
+    const renderTextSection = async (sectionName) => {
+        const section = await ContentLoader.load(sectionName);
+        if (section) {
+            renderText(section, `#${sectionName}-content`);
+        }
     };
 
     /**
@@ -186,7 +207,8 @@ const ContentLoader = (() => {
             { type: 'contact', selector: '#contact' },
             { type: 'hero', selector: '#home' },
             { type: 'services', selector: '#services' },
-            { type: 'resources', selector: '#resources' }
+            { type: 'resources', selector: '#resources' },
+            { type: 'gender', selector: '#gender' }
         ];
 
         sectionsToCheck.forEach(async ({ type, selector }) => {
@@ -228,6 +250,9 @@ const ContentLoader = (() => {
             // Load contact info
             await renderTextSection('contact');
 
+            // Load gender-affirming care section
+            await renderTextSection('gender');
+
         } catch (error) {
             console.error('Error initializing content loader:', error);
         }
@@ -242,15 +267,6 @@ const ContentLoader = (() => {
         init
     };
 })();
-
-
-// Utility for rendering text sections (about, booking, contact, etc.)
-const renderTextSection = async (sectionName) => {
-    const section = await load(sectionName);
-    if (section) {
-        renderText(section, `#${sectionName}-content`);
-    }
-};
 
 
 // Initialize when DOM is ready
