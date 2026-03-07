@@ -186,34 +186,24 @@ const ContentLoader = (() => {
         /**
          * If a section has render set to false, skip rendering and remove from DOM
          * @param {Object} content - The content object
-         * @param {string} selector - CSS selector for the container
+         * @param {string} selector - CSS selector for the container, minus the # (e.g. 'about', 'services')
          */
         const handleConditionalRendering = (content, selector) => {
-            const container = document.querySelector(selector);
-            if (!container) return; /* If it's not there anyway, don't need to bother deleting it! */
+            const container = document.querySelector(`#${selector}`);
             /* Has "content &&" to avoid glitching if it's null or undefined */
             if (content && content.render === false) {
-                container.remove(); /* Remove the relevant section from the DOM... */
+                if (container) container.remove(); /* Remove the relevant section from the DOM... */
                 /* ...and also remove any navigation links pointing to it... */
-                const navLink = document.querySelector(`a[data-section="${container.id}"]`);
+                const navLink = document.querySelector(`a[data-section="${selector}"]`);
                 if (navLink) navLink.parentElement.remove();
             }
         };
 
-        const sectionsToCheck = [
-            { type: 'about', selector: '#about' },
-            { type: 'blog', selector: '#blog-section' },
-            { type: 'booking', selector: '#booking' },
-            { type: 'contact', selector: '#contact' },
-            { type: 'hero', selector: '#home' },
-            { type: 'services', selector: '#services' },
-            { type: 'resources', selector: '#resources' },
-            { type: 'gender', selector: '#gender' }
-        ];
+        const sectionsToCheck = [ 'about', 'blog', 'booking', 'contact', 'hero', 'services', 'resources', 'gender'];
 
-        sectionsToCheck.forEach(async ({ type, selector }) => {
-            const content = await load(type);
-            handleConditionalRendering(content, selector);
+        sectionsToCheck.forEach(async (section) => {
+            const content = await load(section);
+            handleConditionalRendering(content, section);
         });
 
         try {
