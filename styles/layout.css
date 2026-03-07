@@ -179,7 +179,7 @@
 
 /* Items in columns */
 .column-item {
-    max-width: 50%;
+    width: 50%;
 }
 
 /* Two-Column Layout for Content Placeholder + Image */
