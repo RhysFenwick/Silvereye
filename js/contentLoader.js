@@ -203,10 +203,7 @@ const ContentLoader = (() => {
             }
 
             // Load about section
-            const aboutData = await load('about');
-            if (aboutData) {
-                renderText(aboutData, '#about-content');
-            }
+            await renderTextSection('about');
 
             // Load services
             const servicesData = await load('services');
@@ -226,16 +223,11 @@ const ContentLoader = (() => {
             }
 
             // Load booking section
-            const bookingData = await load('booking');
-            if (bookingData) {
-                renderText(bookingData, '#booking-content');
-            }
+            await renderTextSection('booking');
 
             // Load contact info
-            const contactData = await load('contact');
-            if (contactData) {
-                renderText(contactData, '#contact-content');
-            }
+            await renderTextSection('contact');
+
         } catch (error) {
             console.error('Error initializing content loader:', error);
         }
@@ -250,6 +242,16 @@ const ContentLoader = (() => {
         init
     };
 })();
+
+
+// Utility for rendering text sections (about, booking, contact, etc.)
+const renderTextSection = async (sectionName) => {
+    const section = await load(sectionName);
+    if (section) {
+        renderText(section, `#${sectionName}-content`);
+    }
+};
+
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
