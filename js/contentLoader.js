@@ -199,7 +199,7 @@ const ContentLoader = (() => {
             }
         };
 
-        const sectionsToCheck = [ 'about', 'blog', 'booking', 'contact', 'hero', 'services', 'resources', 'gender'];
+        const sectionsToCheck = [ 'about', 'blog', 'supervision', 'contact', 'hero', 'services', 'resources', 'gender'];
 
         sectionsToCheck.forEach(async (section) => {
             const content = await load(section);
@@ -242,6 +242,9 @@ const ContentLoader = (() => {
 
             // Load gender-affirming care section
             await renderTextSection('gender');
+
+            // Load supervision section
+            await renderTextSection('supervision');
 
         } catch (error) {
             console.error('Error initializing content loader:', error);
