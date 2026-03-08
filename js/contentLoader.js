@@ -179,60 +179,45 @@ const ContentLoader = (() => {
     };
 
     /**
+     * Flesh out a page with components from components/ folder
+     * @param {String} component - component name (minus '.html')
+     * @param {String} selector - CSS selector for where to insert the component
+     */
+    const renderComponent = async (component, selector) => {
+        const container = document.getElementById(selector);
+        if (!container) return;
+        try {
+            const response = await fetch(`../../components/${component}.html`);
+            if (response.ok) {
+                const html = await response.text();
+                container.innerHTML = html;
+            } else {
+                console.error(`Failed to load component: ${component}`);
+            }
+        } catch (error) {
+            console.error(`Error loading component: ${component}`, error);
+        }
+    };
+
+    /* Map of component names to their container selectors for easy rendering - to be expanded */
+    const componentMap = {
+        navbar: 'navbar',
+        footer: 'footer'    
+    };
+
+    /**
      * Initialize all content loading
      * Call this after DOM is loaded
      */
     const init = async () => {
-        /**
-         * If a section has render set to false, skip rendering and remove from DOM
-         * @param {Object} content - The content object
-         * @param {string} selector - CSS selector for the container, minus the # (e.g. 'about', 'services')
-         */
-        const handleConditionalRendering = (content, selector) => {
-            const container = document.querySelector(`#${selector}`);
-            /* Has "content &&" to avoid glitching if it's null or undefined */
-            if (content && content.render === false) {
-                if (container) container.remove(); /* Remove the relevant section from the DOM... */
-                /* ...and also remove any navigation links pointing to it... */
-                const navLink = document.querySelector(`a[data-section="${selector}"]`);
-                if (navLink) navLink.parentElement.remove();
-            }
-        };
-
-        const sectionsToCheck = [ 'about', 'blog', 'supervision', 'contact', 'hero', 'services', 'resources', 'gender'];
-
-        sectionsToCheck.forEach(async (section) => {
-            const content = await load(section);
-            handleConditionalRendering(content, section);
-        });
 
         try {
-            // Load hero subtitle
-            const heroData = await load('hero');
-            if (heroData && heroData.subtitle) {
-                const subtitleEl = document.querySelector('#hero-subtitle');
-                if (subtitleEl) subtitleEl.textContent = heroData.subtitle;
+            // Load components
+            for (const [component, selector] of Object.entries(componentMap)) {
+                await renderComponent(component, selector);
             }
-
             // Load about section
             await renderTextSection('about');
-
-            // Load services
-            const servicesData = await load('services');
-            if (servicesData && servicesData.items) {
-                renderCards(servicesData.items, '#services-grid', 'service');
-            }
-
-            // Load resources
-            const resourcesData = await load('resources');
-            if (resourcesData) {
-                if (resourcesData.intro) {
-                    renderText(resourcesData.intro, '#resources-intro');
-                }
-                if (resourcesData.items) {
-                    renderResources(resourcesData.items, '#resources-grid');
-                }
-            }
 
             // Load booking section
             await renderTextSection('booking');
