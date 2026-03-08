@@ -220,6 +220,25 @@
     color: white;
 }
 
+/* Contact Form */
+#contact-form {
+    background-color: var(--color-bg-dark);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+label {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
 /* Scrollbar Styling (modern browsers) */
 ::-webkit-scrollbar {
     width: 0.5rem;

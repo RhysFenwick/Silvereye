@@ -34,62 +34,6 @@ const ContentLoader = (() => {
     };
 
     /**
-     * Render card-based content
-     * @param {Array} items - Array of items to render
-     * @param {string} selector - CSS selector for container
-     * @param {string} cardType - Type of card to render ('service', 'blog', etc)
-     */
-    const renderCards = (items, selector, cardType = 'card') => {
-        const container = document.querySelector(selector);
-        if (!container || !items) return;
-
-        container.innerHTML = '';
-        
-        items.forEach(item => {
-            const card = createCard(item, cardType);
-            container.appendChild(card);
-        });
-    };
-
-    /**
-     * Create a card element from item data
-     * @param {Object} item - Item data
-     * @param {string} cardType - Type of card
-     * @returns {HTMLElement} The created card element
-     */
-    const createCard = (item, cardType) => {
-        const card = document.createElement('div');
-        card.className = `card ${cardType}-card`;
-
-        let cardHTML = `<h3>${item.title || ''}</h3>`;
-
-        if (item.description) {
-            cardHTML += `<p>${item.description}</p>`;
-        }
-
-        if (cardType === 'blog' && item.date) {
-            cardHTML = `<div class="blog-card-meta">
-                            <span class="blog-card-date">${formatDate(item.date)}</span>
-                        </div>` + cardHTML;
-        }
-
-        if (item.tags) {
-            cardHTML += `<div class="card-tags">`;
-            item.tags.forEach(tag => {
-                cardHTML += `<span class="badge badge-primary">${tag}</span> `;
-            });
-            cardHTML += `</div>`;
-        }
-
-        if (item.cta && item.cta.text) {
-            cardHTML += `<a href="${item.cta.link || '#'}" class="btn btn-primary">${item.cta.text}</a>`;
-        }
-
-        card.innerHTML = cardHTML;
-        return card;
-    };
-
-    /**
      * Render text content
      * @param {Object} content - Content object with title and body or body-link
      * @param {string} selector - CSS selector for container
@@ -133,52 +77,6 @@ const ContentLoader = (() => {
     };
 
     /**
-     * Render downloadable resources
-     * @param {Array} items - Array of resource items
-     * @param {string} selector - CSS selector for container
-     */
-    const renderResources = (items, selector) => {
-        const container = document.querySelector(selector);
-        if (!container || !items) return;
-
-        container.innerHTML = '';
-        
-        items.forEach(item => {
-            const resource = createResourceCard(item);
-            container.appendChild(resource);
-        });
-    };
-
-    /**
-     * Create a resource card element
-     * @param {Object} item - Resource item data
-     * @returns {HTMLElement} The created resource card
-     */
-    const createResourceCard = (item) => {
-        const card = document.createElement('div');
-        card.className = 'card resource-card';
-
-        let cardHTML = `<h3>${item.title || ''}</h3>`;
-
-        if (item.description) {
-            cardHTML += `<p>${item.description}</p>`;
-        }
-
-        if (item.type) {
-            cardHTML += `<span class="badge badge-primary">${item.type}</span>`;
-        }
-
-        if (item.download) {
-            cardHTML += `<a href="${item.download.url}" class="btn btn-primary" download="${item.download.filename || ''}" target="_blank">
-                            📥 Download ${item.download.filename || 'File'}
-                        </a>`;
-        }
-
-        card.innerHTML = cardHTML;
-        return card;
-    };
-
-    /**
      * Flesh out a page with components from components/ folder
      * @param {String} component - component name (minus '.html')
      * @param {String} selector - CSS selector for where to insert the component
@@ -219,12 +117,6 @@ const ContentLoader = (() => {
             // Load about section
             await renderTextSection('about');
 
-            // Load booking section
-            await renderTextSection('booking');
-
-            // Load contact info
-            await renderTextSection('contact');
-
             // Load gender-affirming care section
             await renderTextSection('gender');
 
@@ -239,9 +131,7 @@ const ContentLoader = (() => {
     // Public API
     return {
         load,
-        renderCards,
         renderText,
-        renderResources,
         init
     };
 })();

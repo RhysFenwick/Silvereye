@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fable Psychology">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <title>Contact - Fable Psychology</title>
+    
+    <!-- Stylesheets - Mobile-first approach -->
+    <link rel="stylesheet" href="../../styles/variables.css">
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/layout.css">
+    <link rel="stylesheet" href="../../styles/components.css">
+    
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar"></nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Title Section -->
+        <section class="section hero" id="home">
+            <div class="container animate__animated animate__fadeInDown animate__slow">
+                <h2 id="page-title"></h2>
+                <h3 id="page-subtitle"></h3>
+            </div>
+        </section>
+        <section class="section content" id="content-body">
+            <form action="https://api.web3forms.com/submit" id="contact-form" method="POST">
+                <input type="hidden" name="access_key" value="2c671e0a-4afd-4d94-8190-cd5ae0ddb209">
+                <label for="name">Name</label>
+                <input type="text" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- Scripts -->
+    <script src="../../js/contentLoader.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

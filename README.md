@@ -83,6 +83,7 @@ Styles are organized by specificity and purpose:
 ## 🔧 JavaScript Modules
 
 ### ContentLoader
+
 Handles loading JSON files and rendering content dynamically.
 
 ```javascript
@@ -92,10 +93,13 @@ ContentLoader.renderCards(data.items, '#services-grid', 'service');
 ```
 
 ### Navigation
+
 Manages mobile menu toggle, smooth scrolling, and active section highlighting.
 
 ### App
+
 Core application logic including:
+
 - Contact form validation
 - Error handling
 - Event logging (analytics-ready)
@@ -124,17 +128,14 @@ The site uses mobile-first CSS with these breakpoints:
 ## 🔮 Future Enhancements
 
 - [ ] Dark mode toggle
-- [ ] Multi-language support
 - [ ] Search functionality
-- [ ] Comment system for blog
 - [ ] Analytics integration
 - [ ] Email notifications for contact form
 - [ ] Social media integration
-- [ ] Appointment booking system
 
 ## 🛠️ Common Tasks
 
-### Add a New Section
+### Add a New Section (TODO - UPDATE THIS)
 
 1. Add HTML structure in `index.html`
 2. Create corresponding JSON file in `content/`
@@ -147,7 +148,7 @@ Edit CSS variables in `styles/variables.css` and update throughout the site auto
 
 ### Update Navigation Links
 
-Edit the `<nav>` element in `index.html`. Navigation JS will automatically handle smooth scrolling and active states.
+Edit navbar.html in components/. Navigation JS will automatically handle smooth scrolling and active states.
 
 ## 📝 Best Practices
 
@@ -164,10 +165,9 @@ Undecided yet.
 
 ## 📧 TODO
 
-- Change the rendering order so things are non-rendered by default rather than rendered then subtracted
-- Add animations
-- Add images
+- Write updated architecture documentation
+- Investigate contact form functionality
 
 ---
 
-**Last Updated**: January 21, 2026
+**Last Updated**: 8 Feb, 2026
