@@ -181,6 +181,8 @@
 .column-item {
     flex-grow: 1;
     margin: var(--spacing-md);
+    text-align: left;
+    min-width: 45%;
 }
 
 /* Two-Column Layout for Content Placeholder + Image */

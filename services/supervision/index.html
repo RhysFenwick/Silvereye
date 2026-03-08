@@ -57,12 +57,24 @@
 
         <section class="section supervision" id="supervision">
             <div class="container">
-                <div id="supervision-content" class="content-placeholder">
-                    <!-- Loaded from content/supervision.json -->
+                <div id="supervision-columns" class="content-two-column">
+                    <div id="supervision-content" class="content-placeholder column-item">
+                        <!-- Loaded from content/supervision.json -->
+                    </div>
+                    <div id="calendly" class="column-item">
+                        <div class="container">
+                            <!-- Calendly Embed Placeholder -->
+                            <div id="calendly-embed" class="calendly-embed-container" style="margin-top: var(--spacing-2xl);">
+                                <!-- Calendly inline widget begin -->
+                                <div class="calendly-inline-widget" data-url="https://calendly.com/fable-psychology/30min" style="min-width:320px;height:700px;"></div>
+                                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                                <!-- Calendly inline widget end -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
 
     <!-- Footer -->
     <footer class="footer">
