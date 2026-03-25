@@ -114,6 +114,7 @@ const ContentLoader = (() => {
             for (const [component, selector] of Object.entries(componentMap)) {
                 await renderComponent(component, selector);
             }
+            console.log('Components loaded');
             // Load about section
             await renderTextSection('about');
 
@@ -138,6 +139,9 @@ const ContentLoader = (() => {
 
 
 // Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    ContentLoader.init();
+document.addEventListener('DOMContentLoaded', async () => {
+    await ContentLoader.init();
+    console.log(`${document.querySelector('menu-toggle')}`)
+    window.contentLoaded = true;
+    document.dispatchEvent(new Event("contentLoaded"));
 });

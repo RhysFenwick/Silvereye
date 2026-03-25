@@ -37,7 +37,10 @@ const Navigation = (() => {
         const menuToggle = document.querySelector(config.menuToggleSelector);
         const navMenu = document.querySelector(config.navMenuSelector);
 
+        console.log(`Initializing menu toggle:`, { menuToggle, navMenu });
         if (!menuToggle || !navMenu) return;
+
+        
 
         // Toggle menu on button click
         menuToggle.addEventListener('click', () => {
@@ -144,7 +147,11 @@ const Navigation = (() => {
     };
 })();
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+// Initialise once contentLoader runs
+if (window.contentLoaded) {
     Navigation.init();
-});
+} else {
+    document.addEventListener("contentLoaded", () => {
+        Navigation.init();
+    });
+}
